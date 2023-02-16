@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** B-PSU-200-LIL-2-1-minishell1-elouan.rigomont
+** lib
 ** File description:
 ** my_removelinetab
 */

@@ -35,5 +35,7 @@
     char **add_line_tab(char **tab, char *str);
     int my_tablen(char **tab);
     char **my_removelinetab(char **tab, int line);
+    char *my_getenv(char **my_env, char *str);
+    int search_env(char **my_env, char *str);
 
 #endif /* !LIB_H_ */
