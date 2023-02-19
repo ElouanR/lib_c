@@ -22,6 +22,7 @@ build_lib:
 
 $(NAME): $(OBJ) build_lib
 	gcc $(SRC) $(WARNING_FLAGS) -o $(NAME) $(LIB_FLAGS)
+	make clean
 
 clean:
 	make clean -sC ./lib
