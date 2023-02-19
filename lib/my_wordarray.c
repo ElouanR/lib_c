@@ -6,42 +6,61 @@
 */
 
 #include "./lib.h"
+#include <stdlib.h>
 
 int get_words(char *str)
 {
-    int words = 0;
+    int nbr = 0;
 
     for (int i = 0 ; str[i] ; i++) {
-        if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t') {
-            words++;
+        if (str[i] == ' ') {
+            nbr++;
         }
-        for (; str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ; i++);
     }
-    if (str[my_strlen(str) - 1] == ' ' || str[my_strlen(str) - 1] == '\n'
-    || str[my_strlen(str) - 1] == '\t')
-        words--;
-    return (words);
+    nbr++;
+
+    return (nbr);
+}
+
+char *modif_str(char *str)
+{
+    char *temp = malloc(sizeof(char) * (my_strlen(str) + 1));
+    int s = 0, e = 0, i = 0, x = 0;
+    for (;str[s] && (str[s] == ' ' || str[s] == '\n' || str[s] == '\t') ; s++);
+    for (e = my_strlen(str) - 1 ; e > 0 && (str[e] == ' '
+    || str[e] == '\n' || str[e] == '\t') ; e--);
+    for (i = 0 ; s <= e ; s++, i++)
+        temp[i] = str[s];
+    temp[i] = '\0'; str = temp;
+    temp = malloc(sizeof(char) * (my_strlen(str) + 1));
+    i = 0;
+    for (int x = 0 ; str[x] ; x++) {
+        int z = 0;
+        if (str[x] != ' ' && str[x] != '\n' && str[x] != '\t')
+            temp[i++] = str[x];
+        else
+            temp[i++] = ' ';
+        for (; str[x] == ' ' || str[x] == '\n' || str[x] == '\t' ; x++, z++);
+        (z != 0) ? x-- : 0;
+    } temp[i] = '\0';
+    return (temp);
 }
 
 char **my_wordarray(char *str)
 {
-    int i = 0, k = 0, m = 0;
-    int nb_words = get_words(str);
-    char **array = malloc(sizeof(char *) * (nb_words + 2));
+    int x = 0, t = 0;
+    char *temp = modif_str(str);
+    char **array = malloc(sizeof(char *) * (get_words(temp) + 1));
 
-    for (; m < nb_words + 1 ; m++) {
-        for (; str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ; i++);
-        array[m] = malloc(sizeof(char) * (my_strlen(str) + 1));
-        for (k = 0 ; str[i] != ' ' && str[i] != '\n'
-        && str[i] != '\t' && str[i]; i++, k++)
-            array[m][k] = str[i];
-        array[m][k] = '\0';
-        for (; str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ; i++);
+    for (; x < get_words(temp) ; x++) {
+        array[x] = malloc(sizeof(char) * (my_strlen(temp) + 1));
+        for (int a = 0 ; temp[t] != ' ' && temp[t] != '\n'
+        && temp[t] != '\t' && temp[t] ; t++, a++)
+            array[x][a] = temp[t];
+        array[x][t] = '\0';
+        t++;
     }
-    for (int x = 0 ; array[x] ; x++)
-        if (array[x][0] == '\0')
-            array[x] = NULL;
+    array[x] = NULL;
 
-    array[m] = NULL;
     return (array);
 }

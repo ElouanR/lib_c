@@ -5,6 +5,8 @@
 ** my_getenv
 */
 
+#include "lib.h"
+
 char *my_getenv(char **my_env, char *str)
 {
     int i = search_env(my_env, str);
