@@ -32,10 +32,10 @@
     char *my_strcpy(char *dest, char const *src);
     int my_isalphanumeric(char *str);
     int my_strncmp(char *s1, char *s2, int n);
-    char **add_line_tab(char **tab, char *str);
+    char **my_addlinetab(char **tab, char *str);
     int my_tablen(char **tab);
     char **my_removelinetab(char **tab, int line);
     char *my_getenv(char **my_env, char *str);
-    int search_env(char **my_env, char *str);
+    int my_searchenv(char **my_env, char *str);
 
 #endif /* !LIB_H_ */

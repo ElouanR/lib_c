@@ -7,7 +7,7 @@
 
 #include "lib.h"
 
-int search_env(char **my_env, char *str)
+int my_searchenv(char **my_env, char *str)
 {
     int i = 0;
     for (; my_env[i] ; i++) {

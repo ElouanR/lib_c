@@ -7,7 +7,7 @@
 
 #include "lib.h"
 
-char **add_line_tab(char **tab, char *str)
+char **my_addlinetab(char **tab, char *str)
 {
     int i = 0, j = 0;
 
