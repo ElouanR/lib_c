@@ -9,7 +9,7 @@
 
 char *my_getenv(char **my_env, char *str)
 {
-    int i = search_env(my_env, str);
+    int i = my_searchenv(my_env, str);
     char *temp = malloc(sizeof(char) * my_strlen(my_env[i]) + 1);
     int j = 0;
 
