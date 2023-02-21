@@ -54,10 +54,11 @@ char **my_wordarray(char *str)
 
     for (; x < get_words(temp) ; x++) {
         array[x] = malloc(sizeof(char) * (my_strlen(temp) + 1));
-        for (int a = 0 ; temp[t] != ' ' && temp[t] != '\n'
+        int a = 0;
+        for (; temp[t] != ' ' && temp[t] != '\n'
         && temp[t] != '\t' && temp[t] ; t++, a++)
             array[x][a] = temp[t];
-        array[x][t] = '\0';
+        array[x][a] = '\0';
         t++;
     }
     array[x] = NULL;

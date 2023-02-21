@@ -9,12 +9,16 @@
 
 char *my_strcat(char *dest, char const *src)
 {
-    int i;
-    int j = my_strlen(dest);
+    char *str = malloc(sizeof(char) * (my_strlen(dest) + my_strlen(src) + 1));
+    int l = 0;
 
-    for (i = 0 ; src[i] != '\0' ; i++) {
-        dest[i + j] = src[i];
-    }
-    dest[i + j] = '\0';
-    return dest;
+    for (int i = 0 ; dest[i] ; i++, l++)
+        str[l] = dest[i];
+
+    for (int i = 0 ; src[i] ; i++, l++)
+        str[l] = src[i];
+
+    str[l] = '\0';
+
+    return (str);
 }
