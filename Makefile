@@ -15,13 +15,15 @@ WARNING_FLAGS := -Wall -Wextra -W -g
 
 LIB_FLAGS := -I include/ -L ./lib -l:lib.a
 
+CSFML_FLAGS := -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio
+
 all: $(NAME)
 
 build_lib:
 	make -sC ./lib
 
 $(NAME): $(OBJ) build_lib
-	gcc $(SRC) $(WARNING_FLAGS) -o $(NAME) $(LIB_FLAGS)
+	gcc $(SRC) $(WARNING_FLAGS) $(CSFML_FLAGS) -o $(NAME) $(LIB_FLAGS)
 	make clean
 
 clean:
