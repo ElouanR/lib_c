@@ -36,3 +36,5 @@ fclean: clean
 	rm -f coding-style-reports.log
 
 re: fclean all
+
+.PHONY : all build_lib clean fclean re
