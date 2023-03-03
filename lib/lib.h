@@ -11,9 +11,7 @@
     #include <stdio.h>
     #include <unistd.h>
     #include <stdlib.h>
-    #include <sys/types.h>
-    #include <sys/stat.h>
-    #include <fcntl.h>
+    #include <sys/time.h>
 
     int my_getnbr(char const *str);
     char *my_nbrstr(int nb);
@@ -37,5 +35,6 @@
     char **my_removelinetab(char **tab, int line);
     char *my_getenv(char **my_env, char *str);
     int my_searchenv(char **my_env, char *str);
+    long my_randnum(int max);
 
 #endif /* !LIB_H_ */

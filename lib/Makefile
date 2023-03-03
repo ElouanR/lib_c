@@ -27,6 +27,7 @@ SRC = 	my_getnbr.c					\
 		my_removelinetab.c			\
 		my_getenv.c					\
 		my_searchenv.c				\
+		my_randnum.c				\
 
 OBJ = $(SRC:.c=.o)
 
@@ -48,4 +49,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY: all clean fclean re
