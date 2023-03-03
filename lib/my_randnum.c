@@ -13,5 +13,5 @@ long my_randnum(int max)
     gettimeofday(&tv, NULL);
     srand(tv.tv_sec * 1000000000 + tv.tv_usec * 1000);
 
-    return (rand() % max);
+    return (rand() % (max + 1));
 }
