@@ -12,6 +12,9 @@
     #include <unistd.h>
     #include <stdlib.h>
     #include <sys/time.h>
+    #include <sys/types.h>
+    #include <sys/stat.h>
+    #include <fcntl.h>
 
     int my_getnbr(char const *str);
     char *my_nbrstr(int nb);
