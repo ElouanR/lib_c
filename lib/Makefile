@@ -26,7 +26,7 @@ SRC = 	my_getnbr.c					\
 		my_tablen.c					\
 		my_removelinetab.c			\
 		my_getenv.c					\
-		my_searchenv.c				\
+		my_searchintab.c			\
 		my_randnum.c				\
 
 OBJ = $(SRC:.c=.o)

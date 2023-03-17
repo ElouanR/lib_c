@@ -37,7 +37,7 @@
     int my_tablen(char **tab);
     char **my_removelinetab(char **tab, int line);
     char *my_getenv(char **my_env, char *str);
-    int my_searchenv(char **my_env, char *str);
+    int my_searchintab(char **my_env, char *str);
     long my_randnum(int max);
 
 #endif /* !LIB_H_ */
