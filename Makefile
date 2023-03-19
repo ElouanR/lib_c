@@ -13,9 +13,7 @@ OBJ = $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
 
 NAME = exec
 
-DEBUG_FLAGS := -g
-
-WARNING_FLAGS := -Wall -Wextra -W
+BASIC_FLAGS := -Wall -Wextra -W
 
 LIB_FLAGS := -I include/ -L ./lib -l:lib.a
 
@@ -33,10 +31,10 @@ fclean_lib:
 	make fclean -sC ./lib
 
 $(NAME): $(OBJ) build_lib
-	gcc $(OBJ) $(WARNING_FLAGS) $(DEBUG_FLAGS) $(CSFML_FLAGS) -o $(NAME) $(LIB_FLAGS)
+	gcc $(OBJ) $(BASIC_FLAGS) $(CSFML_FLAGS) -o $(NAME) $(LIB_FLAGS)
 
 $(OBJ_DIR)%.o: src/%.c
-	gcc $(WARNING_FLAGS) $(DEBUG_FLAGS) $(CSFML_FLAGS) -c -o $@ $< $(LIB_FLAGS)
+	gcc $(BASIC_FLAGS) $(CSFML_FLAGS) -c -o $@ $< $(LIB_FLAGS)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
