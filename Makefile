@@ -5,13 +5,15 @@
 ## Makefile
 ##
 
-SRC = 	./src/main.c				\
+SRC = ./src/main.c					\
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(addprefix obj/, $(notdir $(SRC:.c=.o)))
 
 NAME = exec
 
-WARNING_FLAGS := -Wall -Wextra -W -g
+DEBUG_FLAGS := -g
+
+WARNING_FLAGS := -Wall -Wextra -W
 
 LIB_FLAGS := -I include/ -L ./lib -l:lib.a
 
@@ -23,8 +25,10 @@ build_lib:
 	make -sC ./lib
 
 $(NAME): $(OBJ) build_lib
-	gcc $(SRC) $(WARNING_FLAGS) $(CSFML_FLAGS) -o $(NAME) $(LIB_FLAGS)
-	make clean
+	gcc $(OBJ) $(WARNING_FLAGS) $(DEBUG_FLAGS) $(CSFML_FLAGS) -o $(NAME) $(LIB_FLAGS)
+
+obj/%.o: src/%.c | obj
+	gcc $(WARNING_FLAGS) $(DEBUG_FLAGS) $(CSFML_FLAGS) -c -o $@ $< $(LIB_FLAGS)
 
 clean:
 	make clean -sC ./lib

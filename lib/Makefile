@@ -29,15 +29,17 @@ SRC = 	my_getnbr.c					\
 		my_searchintab.c			\
 		my_randnum.c				\
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(addprefix ../obj/, $(notdir $(SRC:.c=.o)))
 
 NAME = lib.a
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc -c $(SRC)
-	ar rc $(NAME) *.o
+	ar rc $(NAME) $(OBJ)
+
+../obj/%.o: %.c
+	gcc -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
