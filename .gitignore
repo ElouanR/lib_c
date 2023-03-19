@@ -11,3 +11,4 @@ test*
 .vscode
 *.pdf
 coding-style-reports.log
+exec
