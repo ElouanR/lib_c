@@ -10,6 +10,8 @@
 char *my_getenv(char **my_env, char *str)
 {
     int i = my_searchintab(my_env, str);
+    if (i == -1)
+        return (NULL);
     char *temp = malloc(sizeof(char) * my_strlen(my_env[i]) + 1);
     int j = 0;
 
