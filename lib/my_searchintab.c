@@ -7,12 +7,12 @@
 
 #include "lib.h"
 
-int my_searchintab(char **my_env, char *str)
+int my_searchintab(char **tab, char *str)
 {
     int i = 0;
-    for (; my_env[i] ; i++) {
-        if (my_strncmp(my_env[i], str, my_strlen(str)) == 0)
-            return (1);
+    for (; tab[i] ; i++) {
+        if (my_strncmp(tab[i], str, my_strlen(str)) == 0)
+            return (i);
     }
-    return (0);
+    return (-1);
 }

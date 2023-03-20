@@ -11,6 +11,7 @@
     #include <stdio.h>
     #include <unistd.h>
     #include <stdlib.h>
+    #include <stdarg.h>
     #include <sys/time.h>
     #include <sys/types.h>
     #include <sys/stat.h>
@@ -20,7 +21,7 @@
     char *my_nbrstr(int nb);
     int my_power(int nb, int p);
     void my_putchar(char c);
-    void my_puterror(char const *str);
+    void my_putstrerror(char const *str);
     void my_putnbr(long long nb);
     void my_putstr(char const *str);
     char *my_readfile(char const *filepath);
@@ -37,7 +38,11 @@
     int my_tablen(char **tab);
     char **my_removelinetab(char **tab, int line);
     char *my_getenv(char **my_env, char *str);
-    int my_searchintab(char **my_env, char *str);
+    int my_searchintab(char **tab, char *str);
     long my_randnum(int max);
+    void my_printf(const char *format, ...);
+    void my_putcharerror(char c);
+    void my_putnbrerror(long long nb);
+    void my_printferror(const char *format, ...);
 
 #endif /* !LIB_H_ */

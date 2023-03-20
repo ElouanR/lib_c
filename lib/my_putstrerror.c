@@ -7,7 +7,7 @@
 
 #include "lib.h"
 
-void my_puterror(char const *str)
+void my_putstrerror(char const *str)
 {
     write(2, str, my_strlen(str));
 }

@@ -9,7 +9,7 @@ SRC = 	my_getnbr.c					\
 		my_nbrstr.c					\
 		my_power.c					\
 		my_putchar.c				\
-		my_puterror.c				\
+		my_putstrerror.c			\
 		my_putnbr.c					\
 		my_putstr.c					\
 		my_readfile.c				\
@@ -28,6 +28,10 @@ SRC = 	my_getnbr.c					\
 		my_getenv.c					\
 		my_searchintab.c			\
 		my_randnum.c				\
+		my_printf.c					\
+		my_putcharerror.c			\
+		my_putnbrerror.c			\
+		my_printferror.c			\
 
 OBJ_DIR = ../obj/
 
