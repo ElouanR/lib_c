@@ -9,10 +9,8 @@
 
 char **my_addlinetab(char **tab, char *str)
 {
-    int i = 0, j = 0;
-
-    for (; tab[i] ; i++);
-    char **new_tab = malloc(sizeof(char *) * (i + 2));
+    int j = 0;
+    char **new_tab = malloc(sizeof(char *) * (my_tablen(tab) + 2));
 
     for (; tab[j] ; j++)
         new_tab[j] = tab[j];

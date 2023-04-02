@@ -29,7 +29,7 @@
     int my_strcmp(char const *s1, char const *s2);
     int my_strisalpha(char *str);
     int my_strlen(char const *str);
-    char **my_wordarray(char *str);
+    char **my_wordarray(char *str, char *characteres);
     char *my_strcat(char *dest, char const *src);
     char *my_strcpy(char *dest, char const *src);
     int my_isalphanumeric(char *str);
@@ -44,5 +44,11 @@
     void my_putcharerror(char c);
     void my_putnbrerror(long long nb);
     void my_printferror(const char *format, ...);
+    void my_freetab(char **tab);
+    char **my_realloctab(char **tab, size_t new_size);
+    char *my_reallocstr(char *str, size_t new_size);
+    char *my_strdup(char const *src);
+    int in_characteres(char c, char *characteres);
+    int my_isnum(char *str);
 
 #endif /* !LIB_H_ */

@@ -5,6 +5,8 @@
 ** my_getnbr
 */
 
+#include "lib.h"
+
 int my_getnbr(char const *str)
 {
     int nb = 0;

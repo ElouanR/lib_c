@@ -5,7 +5,7 @@
 ** my_removelinetab
 */
 
-#include "../include/header.h"
+#include "lib.h"
 
 char **my_removelinetab(char **tab, int line)
 {

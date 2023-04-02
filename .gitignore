@@ -10,5 +10,5 @@
 test*
 .vscode
 *.pdf
+*.txt
 coding-style-reports.log
-exec

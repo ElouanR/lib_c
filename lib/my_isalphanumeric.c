@@ -5,6 +5,8 @@
 ** my_isalphanumeric
 */
 
+#include "lib.h"
+
 int my_isalphanumeric(char *str)
 {
     for (int i = 0 ; str[i] ; i++) {

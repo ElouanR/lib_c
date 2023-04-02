@@ -32,6 +32,12 @@ SRC = 	my_getnbr.c					\
 		my_putcharerror.c			\
 		my_putnbrerror.c			\
 		my_printferror.c			\
+		my_freetab.c				\
+		my_realloctab.c				\
+		my_reallocstr.c				\
+		my_strdup.c					\
+		my_incharacteres.c			\
+		my_isnum.c					\
 
 OBJ_DIR = ../obj/
 

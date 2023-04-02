@@ -5,6 +5,8 @@
 ** my_power
 */
 
+#include "lib.h"
+
 int my_power(int nb, int p)
 {
     if (p < 0)
