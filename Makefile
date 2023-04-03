@@ -39,12 +39,12 @@ NC = \033[0m
 
 $(NAME): $(OBJ)
 	make build_lib
-	gcc $(OBJ) $(BASIC_FLAGS) $(CSFML_FLAGS) -o $(NAME) $(LIB_FLAGS)
+	gcc $(OBJ) $(BASIC_FLAGS) -o $(NAME) $(LIB_FLAGS) $(CSFML_FLAGS)
 	@echo -ne '$(GREEN)Compilation done, $(NC)'
 	@echo -e '$(PURPLE)$(NAME)$(NC) $(GREEN)binary created !$(NC)'
 
 $(OBJ_DIR)%.o: src/%.c
-	gcc $(BASIC_FLAGS) $(CSFML_FLAGS) -c -o $@ $< $(LIB_FLAGS)
+	gcc $(BASIC_FLAGS) -c -o $@ $< $(LIB_FLAGS) $(CSFML_FLAGS)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
