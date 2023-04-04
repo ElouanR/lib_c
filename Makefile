@@ -9,7 +9,7 @@ SRC = 	./src/main.c					\
 
 OBJ_DIR = ./obj/
 
-OBJ = $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
+OBJ = $(addprefix $(OBJ_DIR), $(subst src/,,$(SRC:.c=.o)))
 
 NAME = exec
 
@@ -44,10 +44,11 @@ $(NAME): $(OBJ)
 	@echo -e '$(PURPLE)$(NAME)$(NC) $(GREEN)binary created !$(NC)'
 
 $(OBJ_DIR)%.o: src/%.c
-	gcc $(BASIC_FLAGS) -c -o $@ $< $(LIB_FLAGS) $(CSFML_FLAGS)
+	gcc $(BASIC_FLAGS) -c -o $(OBJ_DIR)$(subst src/,,$(basename $<)).o $<	\
+	$(LIB_FLAGS) $(CSFML_FLAGS)
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	mkdir -p $(dir $(OBJ))
 
 clean: clean_lib
 	rm -Rf $(OBJ_DIR)
