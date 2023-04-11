@@ -20,7 +20,7 @@ SRC = 	my_getnbr.c					\
 		my_wordarray.c				\
 		my_strcat.c					\
 		my_strcpy.c					\
-		my_isalphanumeric.c			\
+		my_isalphanum.c				\
 		my_strncmp.c				\
 		my_addlinetab.c				\
 		my_tablen.c					\
@@ -38,6 +38,8 @@ SRC = 	my_getnbr.c					\
 		my_strdup.c					\
 		my_incharacteres.c			\
 		my_isnum.c					\
+		my_isalpha.c				\
+		my_strncpy.c				\
 
 OBJ_DIR = ../obj/
 

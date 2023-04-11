@@ -32,7 +32,7 @@
     char **my_wordarray(char *str, char *characteres);
     char *my_strcat(char *dest, char const *src);
     char *my_strcpy(char *dest, char const *src);
-    int my_isalphanumeric(char *str);
+    int my_isalphanum(char *str);
     int my_strncmp(char *s1, char *s2, int n);
     char **my_addlinetab(char **tab, char *str);
     int my_tablen(char **tab);
@@ -50,5 +50,7 @@
     char *my_strdup(char const *src);
     int in_characteres(char c, char *characteres);
     int my_isnum(char *str);
+    int my_isalpha(char *str);
+    char *my_strncpy(char *dest, char *src, int n);
 
 #endif /* !LIB_H_ */
