@@ -13,8 +13,7 @@ void my_putnbrerror(long long nb)
         my_putcharerror('-');
         nb = -nb;
     }
-    if (nb / 10) {
+    if (nb / 10)
         my_putnbrerror(nb / 10);
-    }
     my_putcharerror(nb % 10 + '0');
 }

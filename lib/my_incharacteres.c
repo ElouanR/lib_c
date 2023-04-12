@@ -9,7 +9,7 @@
 
 int in_characteres(char c, char *characteres)
 {
-    for (int i = 0 ; characteres[i] ; i++) {
+    for (int i = 0; characteres[i]; i++) {
         if (c == characteres[i])
             return (1);
     }

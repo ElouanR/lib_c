@@ -13,11 +13,8 @@ int len_nbr(int nbr)
 
     if (nbr < 0)
         nbr *= -1;
-
-    while (nbr > 0) {
+    for (; nbr > 0; i++)
         nbr /= 10;
-        i++;
-    }
     return (i);
 }
 

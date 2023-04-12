@@ -9,9 +9,9 @@
 
 char *my_readfile(char const *filepath)
 {
-    int fd = open(filepath, O_RDONLY);
-    struct stat sb;
     char *buffer;
+    struct stat sb;
+    int fd = open(filepath, O_RDONLY);
 
     if (fd == -1)
         return (NULL);

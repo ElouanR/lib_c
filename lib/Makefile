@@ -15,7 +15,6 @@ SRC = 	my_getnbr.c					\
 		my_readfile.c				\
 		my_revstr.c					\
 		my_strcmp.c					\
-		my_strisalpha.c				\
 		my_strlen.c					\
 		my_wordarray.c				\
 		my_strcat.c					\
@@ -40,6 +39,7 @@ SRC = 	my_getnbr.c					\
 		my_isnum.c					\
 		my_isalpha.c				\
 		my_strncpy.c				\
+		my_printtab.c				\
 
 OBJ_DIR = ../obj/
 

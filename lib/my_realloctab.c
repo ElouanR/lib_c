@@ -9,9 +9,9 @@
 
 char **my_realloctab(char **tab, size_t new_size)
 {
-    char **new_tab = malloc(sizeof(char *) * (new_size + 1));
-    size_t size = my_tablen(tab);
     size_t i;
+    size_t size = my_tablen(tab);
+    char **new_tab = malloc(sizeof(char *) * (new_size + 1));
 
     for (i = 0; i < size; i++)
         new_tab[i] = tab[i];

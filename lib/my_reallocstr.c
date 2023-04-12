@@ -9,9 +9,9 @@
 
 char *my_reallocstr(char *str, size_t new_size)
 {
-    char *new_str = malloc(sizeof(char) * (new_size + 1));
-    size_t size = my_strlen(str);
     size_t i;
+    size_t size = my_strlen(str);
+    char *new_str = malloc(sizeof(char) * (new_size + 1));
 
     for (i = 0; i < size; i++)
         new_str[i] = str[i];

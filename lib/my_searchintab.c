@@ -10,7 +10,8 @@
 int my_searchintab(char **tab, char *str)
 {
     int i = 0;
-    for (; tab[i] ; i++) {
+
+    for (; tab[i]; i++) {
         if (my_strncmp(tab[i], str, my_strlen(str)) == 0)
             return (i);
     }

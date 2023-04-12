@@ -11,22 +11,19 @@ void fiferror(int i, va_list *param, const char *format)
 {
     if (format[i + 1] == 'd' || format[i + 1] == 'i')
         my_putnbrerror(va_arg(*param, int));
-
     if (format[i + 1] == 's')
         my_putstrerror(va_arg(*param, char *));
-
     if (format[i + 1] == 'c')
         my_putcharerror(va_arg(*param, int));
-
     if (format[i + 1] == '%')
         my_putcharerror('%');
 }
 
 void my_printferror(const char *format, ...)
 {
+    int i = 0;
     va_list param;
     va_start(param, format);
-    int i = 0;
 
     while (i != my_strlen(format)) {
         if (format[i] != '%') {
