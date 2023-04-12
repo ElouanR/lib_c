@@ -11,7 +11,7 @@ OBJ_DIR = ./obj/
 
 OBJ = $(addprefix $(OBJ_DIR), $(subst src/,,$(SRC:.c=.o)))
 
-NAME = exec
+NAME = binary
 
 BASIC_FLAGS := -Wall -Wextra -W
 

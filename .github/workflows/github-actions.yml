@@ -1,0 +1,57 @@
+name: Github Actions
+
+on:
+  push:
+    branches-ignore:
+      - 'ga-ignore-**'
+  pull_request:
+    branches-ignore:
+      - 'ga-ignore-**'
+
+env:
+  EXECUTABLES: "binary"
+
+jobs:
+  check_coding_style:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/epitech/coding-style-checker:latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: check_coding_style
+        run: |
+          check.sh $(pwd) $(pwd)
+
+          while read ligne; do
+            arg1=$(echo $ligne | cut -d: -f1)
+            arg2=$(echo $ligne | cut -d: -f2)
+            arg3=$(echo $ligne | cut -d: -f3)
+            arg4=$(echo $ligne | cut -d: -f4)
+            echo "::error file=$arg1, line=$arg2:: $arg3 $arg4"
+          done < coding-style-reports.log
+
+          if [ $(wc -l < coding-style-reports.log) -gt 0 ]; then
+              exit 1
+          fi
+
+  check_program_compilation:
+    runs-on: ubuntu-latest
+    container:
+      image: epitechcontent/epitest-docker:latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: check_program_compilation
+        timeout-minutes: 2
+        run: make
+      - name: check_program_clean
+        run: make clean
+      - name: check_executables
+        run: |
+          for executable in $(echo $EXECUTABLES | tr "," " "); do
+            if [ ! -x $executable ]; then
+              echo "Error: $executable is not present or not executable"
+              exit 1
+            fi
+          done
