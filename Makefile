@@ -13,13 +13,13 @@ OBJ = $(addprefix $(OBJ_DIR), $(subst src/,,$(SRC:.c=.o)))
 
 NAME = binary
 
-BASIC_FLAGS := -Wall -Wextra -W
+BASIC_FLAGS := -Wall -Wextra -W -g
 
 LIB_FLAGS := -I include/ -L ./lib -l:lib.a
 
 CSFML_FLAGS := -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio
 
-all: $(OBJ_DIR) $(NAME)
+all: $(OBJ_DIR) build_lib $(NAME)
 
 build_lib:
 	make -sC ./lib
@@ -38,7 +38,6 @@ PURPLE = \033[0m\e[1m\e[35m
 NC = \033[0m
 
 $(NAME): $(OBJ)
-	make build_lib
 	gcc $(OBJ) $(BASIC_FLAGS) -o $(NAME) $(LIB_FLAGS) $(CSFML_FLAGS)
 	@echo -ne '$(GREEN)Compilation done, $(NC)'
 	@echo -e '$(PURPLE)$(NAME)$(NC) $(GREEN)binary created !$(NC)'
