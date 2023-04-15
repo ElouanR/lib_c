@@ -85,7 +85,7 @@ char **my_wordarray(char *str, char *characteres)
     if (str == NULL || str[0] == '\0' || characteres[0] == '\0')
         return (NULL);
     temp = modif_str(str, characteres);
-    array = init_array(str, characteres);
+    array = init_array(temp, characteres);
     if (array == NULL)
         return (NULL);
     if (str[0] == '\0') {
