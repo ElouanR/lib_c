@@ -43,7 +43,7 @@ $(NAME): $(OBJ)
 	@echo -e '$(PURPLE)$(NAME)$(NC) $(GREEN)binary created !$(NC)'
 
 $(OBJ_DIR)%.o: src/%.c
-	gcc $(WARNINGS_FLAGS) -c -o $(OBJ_DIR)$(subst src/,,$(basename $<)).o $<	\
+	gcc $(WARNINGS_FLAGS) -c -o $(OBJ_DIR)$(subst src/,,$(basename $<)).o $< \
 	$(LIB_FLAGS) $(CSFML_FLAGS)
 
 $(OBJ_DIR):
