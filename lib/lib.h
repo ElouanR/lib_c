@@ -35,7 +35,7 @@
     int my_strncmp(char *s1, char *s2, int n);
     char **my_addlinetab(char **tab, char *str);
     int my_tablen(char **tab);
-    char **my_removelinetab(char **tab, int line);
+    char **my_rmlinetab(char **tab, int line);
     char *my_getenv(char **my_env, char *str);
     int my_searchintab(char **tab, char *str);
     long my_randnum(int max);

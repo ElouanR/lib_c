@@ -26,12 +26,8 @@ char *modif_str(char *str, char *c)
     int e = 0;
     int i = 0;
 
-    if (temp == NULL)
+    if (!temp)
         return (NULL);
-    if (str == NULL) {
-        free(temp);
-        return (NULL);
-    }
     for (; str[s] && in_characteres(str[s], c) == 1; s++);
     for (e = my_strlen(str) - 1; e > 0 && in_characteres(str[e], c) == 1; e--);
     for (i = 0; s <= e; s++, i++)
@@ -44,12 +40,11 @@ char **init_array(char *str, char *characteres)
 {
     char **array = malloc(sizeof(char *) * (nbr_words(str, characteres) + 1));
 
-    if (array == NULL) {
+    if (!array)
         return (NULL);
-    }
     for (int m = 0; m < (nbr_words(str, characteres)); m++) {
         array[m] = malloc(sizeof(char) * (my_strlen(str) + 1));
-        if (array[m] == NULL) {
+        if (!array[m]) {
             my_freetab(array);
             return (NULL);
         }
@@ -74,6 +69,7 @@ char **in_array(char **array, char *str, char *characteres)
         my_freetab(array);
         return (NULL);
     }
+    free(str);
     return (array);
 }
 
@@ -82,16 +78,21 @@ char **my_wordarray(char *str, char *characteres)
     char **array = NULL;
     char *temp = NULL;
 
-    if (str == NULL || str[0] == '\0' || characteres[0] == '\0')
+    if (!str || str[0] == '\0' || characteres[0] == '\0')
         return (NULL);
     temp = modif_str(str, characteres);
-    array = init_array(temp, characteres);
-    if (array == NULL)
+    if (temp[0] == '\0')
         return (NULL);
-    if (str[0] == '\0') {
+    array = init_array(temp, characteres);
+    if (!temp && !array)
+        return (NULL);
+    if (!array && temp) {
+        free(temp);
+        return (NULL);
+    }
+    if (!temp && array) {
         my_freetab(array);
         return (NULL);
     }
-    free(temp);
-    return (in_array(array, str, characteres));
+    return (in_array(array, temp, characteres));
 }

@@ -7,12 +7,14 @@
 
 #include "lib.h"
 
-char **my_removelinetab(char **tab, int line)
+char **my_rmlinetab(char **tab, int line)
 {
     int i = 0;
     int j = 0;
     char **new_tab = malloc(sizeof(char *) * (my_tablen(tab) + 1));
 
+    if (!new_tab)
+        return (NULL);
     for (; tab[i] ; i++) {
         if (i != line) {
             new_tab[j] = my_strdup(tab[i]);
