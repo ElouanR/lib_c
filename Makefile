@@ -13,11 +13,11 @@ OBJ = $(addprefix $(OBJ_DIR), $(subst src/,,$(SRC:.c=.o)))
 
 NAME = binary
 
-BASIC_FLAGS := -Wall -Wextra -W -g
+WARNINGS_FLAGS = -Wall -Wextra -W -g
 
-LIB_FLAGS := -I include/ -L ./lib -l:lib.a
+LIB_FLAGS = -I include/ -L ./lib -l:lib.a
 
-CSFML_FLAGS := -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio
+CSFML_FLAGS = -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio
 
 all: $(OBJ_DIR) build_lib $(NAME)
 
@@ -38,12 +38,12 @@ PURPLE = \033[0m\e[1m\e[35m
 NC = \033[0m
 
 $(NAME): $(OBJ)
-	gcc $(OBJ) $(BASIC_FLAGS) -o $(NAME) $(LIB_FLAGS) $(CSFML_FLAGS)
+	gcc $(OBJ) $(WARNINGS_FLAGS) -o $(NAME) $(LIB_FLAGS) $(CSFML_FLAGS)
 	@echo -ne '$(GREEN)Compilation done, $(NC)'
 	@echo -e '$(PURPLE)$(NAME)$(NC) $(GREEN)binary created !$(NC)'
 
 $(OBJ_DIR)%.o: src/%.c
-	gcc $(BASIC_FLAGS) -c -o $(OBJ_DIR)$(subst src/,,$(basename $<)).o $<	\
+	gcc $(WARNINGS_FLAGS) -c -o $(OBJ_DIR)$(subst src/,,$(basename $<)).o $<	\
 	$(LIB_FLAGS) $(CSFML_FLAGS)
 
 $(OBJ_DIR):

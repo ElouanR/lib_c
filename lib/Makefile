@@ -47,13 +47,15 @@ OBJ = $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
 
 NAME = lib.a
 
+WARNINGS_FLAGS = -Wall -Wextra -W -g
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 
 $(OBJ_DIR)%.o: %.c
-	gcc -c $< -o $@
+	gcc -c $< -o $@ $(WARNINGS_FLAGS)
 
 clean:
 	rm -f $(OBJ)

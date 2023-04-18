@@ -20,8 +20,9 @@ int len_nbr(int nbr)
 
 char *my_nbrstr(int nb)
 {
-    int i = len_nbr(nb), x = 0, power = 0, cop = 0;
+    int i = len_nbr(nb), x = 0, power = 0;
     char *result = malloc(sizeof(char) * (i + 1));
+
     if (nb == 0)
         return ("0");
     if (nb < 0) {
@@ -31,7 +32,6 @@ char *my_nbrstr(int nb)
         power--;
         i++;
     }
-    cop = nb;
     power += i;
     for (; x < i ; x++) {
         result[x] = (nb % my_power(10, power))
