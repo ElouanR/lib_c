@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** lib
+** lib_c
 ** File description:
 ** my_strcpy
 */

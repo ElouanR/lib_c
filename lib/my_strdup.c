@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** Minishell2
+** lib_c
 ** File description:
 ** my_strdup
 */

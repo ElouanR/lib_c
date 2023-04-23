@@ -1,8 +1,8 @@
 ##
 ## EPITECH PROJECT, 2023
-## lib
+## lib_c
 ## File description:
-## Makefile for lib
+## Makefile for lib_c
 ##
 
 SRC = 	my_getnbr.c					\

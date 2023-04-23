@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** B-CPE-200-LIL-2-1-dante-gianni.henriques
+** lib_c
 ** File description:
 ** my_randnumber
 */
